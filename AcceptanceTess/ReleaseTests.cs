@@ -5,7 +5,7 @@ using NUnit.Framework;
 namespace AcceptanceTess
 {
     [TestFixture]
-    public class ArtistTests
+    public class ReleaseTests
     {
         [TestFixture]
         public class When_searching_for_an_artist_that_does_not_exist
@@ -18,7 +18,7 @@ namespace AcceptanceTess
             }
 
             [Test]
-            public void Shows_artist_doesnt_exist_error_message()
+            public void Shows_release_doesnt_exist_error_message()
             {
                 Requester.ExamineResponseBodyFor("releases/doesnotexist",
                     responseBody =>
