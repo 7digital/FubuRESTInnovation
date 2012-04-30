@@ -17,7 +17,7 @@ namespace AcceptanceTess
         [Test]
         public void Homepage_shows_welcome_message()
         {
-            ExamineResponseFor(BaseUrl, (responseBody) =>
+            RequestHelper.ExamineResponseFor(BaseUrl, (responseBody) =>
             {
                 var x = XDocument.Parse(responseBody);
                 var message1 = x.Element("sevendigitalapi").Element("Message").Value;
@@ -31,22 +31,7 @@ namespace AcceptanceTess
         {
             var json = "{\"sevendigitalapi\":{\"Message\":\"Welcome to the 7digital api\"}}";
 
-            ExamineResponseFor(BaseUrl, responseBody => Assert.That(responseBody, Is.EqualTo(json)), "application/json");
-        }
-
-        private static void ExamineResponseFor(string url, Action<string> a, string accept = "")
-        {
-            var webRequest = (HttpWebRequest)WebRequest.Create(url);
-
-            if (!string.IsNullOrWhiteSpace(accept))
-            {
-                webRequest.Accept = accept;
-            }
-
-            using (var sr = new StreamReader(webRequest.GetResponse().GetResponseStream()))
-            {
-                a(sr.ReadToEnd());
-            }
+            RequestHelper.ExamineResponseFor(BaseUrl, responseBody => Assert.That(responseBody, Is.EqualTo(json)), "application/json");
         }
     }
 }

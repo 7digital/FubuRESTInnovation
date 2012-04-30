@@ -99,7 +99,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fubu-content\FubuMVC.GettingStarted.dll" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -108,6 +107,8 @@
     <Compile Include="Configuration\SevenDizzleRegistry.cs" />
     <Compile Include="ConfigureFubuMVC.cs" />
     <Compile Include="Handlers\Home\Get.cs" />
+    <Compile Include="Infrastructure\Output\CodecSelector.cs" />
+    <Compile Include="Infrastructure\Output\CodecSelectorNode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -126,6 +127,7 @@
   <ItemGroup>
     <Content Include="fubu-content\fubumvc-diagnostics.zip" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
