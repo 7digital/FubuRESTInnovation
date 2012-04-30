@@ -12,16 +12,40 @@ namespace AcceptanceTess
     [TestFixture]
     public class Tests
     {
+        private const string BaseUrl = "http://localhost:59517/";
+      
         [Test]
         public void Homepage_shows_welcome_message()
         {
-            var response = WebRequest.Create("http://localhost:59517/").GetResponse();
-            using (var sr = new StreamReader(response.GetResponseStream()))
+            ExamineResponseFor(BaseUrl, (responseBody) =>
             {
-                var x = XDocument.Parse(sr.ReadToEnd());
-                var message = x.Element("sevendigitalapi").Element("Message").Value;
+                var x = XDocument.Parse(responseBody);
+                var message1 = x.Element("sevendigitalapi").Element("Message").Value;
 
-                Assert.That(message, Is.EqualTo("Welcome to the 7digital api"));
+                Assert.That(message1, Is.EqualTo("Welcome to the 7digital api"));
+            });
+        }
+
+        [Test]
+        public void Content_is_json_when_requested_by_header()
+        {
+            var json = "{\"sevendigitalap\":{\"Message\":\"Welcome to the 7digital api\"}}";
+
+            ExamineResponseFor(BaseUrl, responseBody => Assert.That(json, Is.EqualTo(responseBody)), "application/json");
+        }
+
+        private static void ExamineResponseFor(string url, Action<string> a, string accept = "")
+        {
+            var webRequest = (HttpWebRequest)WebRequest.Create(url);
+
+            if (!string.IsNullOrWhiteSpace(accept))
+            {
+                webRequest.Accept = accept;
+            }
+
+            using (var sr = new StreamReader(webRequest.GetResponse().GetResponseStream()))
+            {
+                a(sr.ReadToEnd());
             }
         }
     }

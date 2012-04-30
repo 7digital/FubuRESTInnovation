@@ -23,3 +23,4 @@ C:\dev\git projectsx\FubuRESTInnovation\FubuRESTInnovation\bin\StructureMap.pdb
 C:\dev\git projectsx\FubuRESTInnovation\FubuRESTInnovation\bin\StructureMap.xml
 C:\dev\git projectsx\FubuRESTInnovation\FubuRESTInnovation\obj\Debug\FubuRESTInnovation.dll
 C:\dev\git projectsx\FubuRESTInnovation\FubuRESTInnovation\obj\Debug\FubuRESTInnovation.pdb
+C:\dev\git projectsx\FubuRESTInnovation\FubuRESTInnovation\obj\Debug\FubuRESTInnovation.csprojResolveAssemblyReference.cache

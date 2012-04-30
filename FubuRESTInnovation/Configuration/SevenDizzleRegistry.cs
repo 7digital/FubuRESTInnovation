@@ -93,8 +93,8 @@ namespace FubuRESTInnovation.Configuration
             var wr = XmlWriter.Create(sww);
             var xs = new XmlSerializer(type);
             xs.Serialize(wr, model);
-            var xml = sww.ToString();
-            return xml;
+            
+            return sww.ToString();
         }
     }
 }
