@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 11
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FubuRESTInnovation", "FubuRESTInnovation\FubuRESTInnovation.csproj", "{F33C80B5-3F2E-4F9A-BF5F-B3A3BA8515CB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AcceptanceTess", "AcceptanceTess\AcceptanceTess.csproj", "{ED040347-76C0-4A11-8FBA-C8432D5C6F5F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ED040347-76C0-4A11-8FBA-C8432D5C6F5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED040347-76C0-4A11-8FBA-C8432D5C6F5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED040347-76C0-4A11-8FBA-C8432D5C6F5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED040347-76C0-4A11-8FBA-C8432D5C6F5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F33C80B5-3F2E-4F9A-BF5F-B3A3BA8515CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F33C80B5-3F2E-4F9A-BF5F-B3A3BA8515CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F33C80B5-3F2E-4F9A-BF5F-B3A3BA8515CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F33C80B5-3F2E-4F9A-BF5F-B3A3BA8515CB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
