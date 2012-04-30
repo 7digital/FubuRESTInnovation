@@ -18,9 +18,16 @@ namespace AcceptanceTess
 
         public static void ExamineResponseFor(string url, Action<HttpWebResponse> a, string accept = "")
         {
-            using (var response = (HttpWebResponse)GetRequest(url, accept).GetResponse())
+            try
             {
-                a(response);
+                using (var response = (HttpWebResponse)GetRequest(url, accept).GetResponse())
+                {
+                    a(response);
+                }
+            }
+            catch (WebException ex)
+            {
+                a((HttpWebResponse) ex.Response);
             }
         }
 

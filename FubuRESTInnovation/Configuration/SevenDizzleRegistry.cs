@@ -2,6 +2,7 @@
 using System.Linq;
 using FubuMVC.Core;
 using FubuRESTInnovation.Handlers.Home;
+using FubuRESTInnovation.Infrastructure.Behaviours;
 using FubuRESTInnovation.Infrastructure.Output;
 
 namespace FubuRESTInnovation.Configuration
@@ -30,6 +31,8 @@ namespace FubuRESTInnovation.Configuration
 
             Output.To<CodecSelectorNode>();
 
+            Policies
+                .WrapBehaviorChainsWith<ErrorHandler>();
 
         }
 
