@@ -1,0 +1,6 @@
+C:\dev\git projectsx\FubuRESTInnovation\FubuRESTInnovation\bin\Debug\FubuRESTInnovation.dll
+C:\dev\git projectsx\FubuRESTInnovation\FubuRESTInnovation\bin\Debug\FubuRESTInnovation.pdb
+C:\dev\git projectsx\FubuRESTInnovation\FubuRESTInnovation\bin\Debug\nunit.framework.dll
+C:\dev\git projectsx\FubuRESTInnovation\FubuRESTInnovation\bin\Debug\nunit.framework.xml
+C:\dev\git projectsx\FubuRESTInnovation\FubuRESTInnovation\obj\Debug\FubuRESTInnovation.dll
+C:\dev\git projectsx\FubuRESTInnovation\FubuRESTInnovation\obj\Debug\FubuRESTInnovation.pdb

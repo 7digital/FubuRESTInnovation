@@ -15,27 +15,14 @@ namespace AcceptanceTess
         [Test]
         public void Homepage_shows_welcome_message()
         {
-            // when i hit the homepage
             var response = WebRequest.Create("http://localhost/").GetResponse();
             using (var sr = new StreamReader(response.GetResponseStream()))
             {
                 var x = XDocument.Parse(sr.ReadToEnd());
-                var message = x.Element("7digital").Element("message").Value;
+                var message = x.Element("sevendigitalapi").Element("message").Value;
 
                 Assert.That(message, Is.EqualTo("Welcome to the 7digital api"));
             }
-
-            // I should get the following xml back
-
-            /*
-                 * <7digital>
-                 *         <message>
-                 *          Welcome to the 7digital api
-                 *         </message>
-                 * </7digital>
-                 * 
-                 */
-
         }
     }
 }
