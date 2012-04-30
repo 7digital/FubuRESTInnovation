@@ -7,7 +7,9 @@ C:\dev\git projectsx\FubuRESTInnovation\FubuRESTInnovation\bin\FubuMVC.Core.dll
 C:\dev\git projectsx\FubuRESTInnovation\FubuRESTInnovation\bin\FubuMVC.StructureMap.dll
 C:\dev\git projectsx\FubuRESTInnovation\FubuRESTInnovation\bin\HtmlTags.dll
 C:\dev\git projectsx\FubuRESTInnovation\FubuRESTInnovation\bin\Microsoft.Practices.ServiceLocation.dll
+C:\dev\git projectsx\FubuRESTInnovation\FubuRESTInnovation\bin\Microsoft.Web.Infrastructure.dll
 C:\dev\git projectsx\FubuRESTInnovation\FubuRESTInnovation\bin\StructureMap.dll
+C:\dev\git projectsx\FubuRESTInnovation\FubuRESTInnovation\bin\WebActivator.dll
 C:\dev\git projectsx\FubuRESTInnovation\FubuRESTInnovation\bin\Bottles.pdb
 C:\dev\git projectsx\FubuRESTInnovation\FubuRESTInnovation\bin\FubuCore.pdb
 C:\dev\git projectsx\FubuRESTInnovation\FubuRESTInnovation\bin\FubuLocalization.pdb
@@ -19,8 +21,5 @@ C:\dev\git projectsx\FubuRESTInnovation\FubuRESTInnovation\bin\Microsoft.Practic
 C:\dev\git projectsx\FubuRESTInnovation\FubuRESTInnovation\bin\Microsoft.Practices.ServiceLocation.xml
 C:\dev\git projectsx\FubuRESTInnovation\FubuRESTInnovation\bin\StructureMap.pdb
 C:\dev\git projectsx\FubuRESTInnovation\FubuRESTInnovation\bin\StructureMap.xml
-C:\dev\git projectsx\FubuRESTInnovation\FubuRESTInnovation\obj\Debug\FubuRESTInnovation.csprojResolveAssemblyReference.cache
 C:\dev\git projectsx\FubuRESTInnovation\FubuRESTInnovation\obj\Debug\FubuRESTInnovation.dll
 C:\dev\git projectsx\FubuRESTInnovation\FubuRESTInnovation\obj\Debug\FubuRESTInnovation.pdb
-C:\dev\git projectsx\FubuRESTInnovation\FubuRESTInnovation\bin\Microsoft.Web.Infrastructure.dll
-C:\dev\git projectsx\FubuRESTInnovation\FubuRESTInnovation\bin\WebActivator.dll

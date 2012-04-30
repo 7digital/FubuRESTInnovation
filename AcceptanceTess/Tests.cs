@@ -19,7 +19,7 @@ namespace AcceptanceTess
             using (var sr = new StreamReader(response.GetResponseStream()))
             {
                 var x = XDocument.Parse(sr.ReadToEnd());
-                var message = x.Element("sevendigitalapi").Element("message").Value;
+                var message = x.Element("sevendigitalapi").Element("Message").Value;
 
                 Assert.That(message, Is.EqualTo("Welcome to the 7digital api"));
             }

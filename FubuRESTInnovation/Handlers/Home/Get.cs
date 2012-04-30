@@ -2,9 +2,14 @@
 {
     public class Get
     {
-        public object Invoke(object blah)
+        public HomeModel Invoke()
         {
-            return null;
+            return new HomeModel {Message = "Welcome to the 7digital api"};
         }
+    }
+
+    public class HomeModel
+    {
+        public string Message { get; set; }
     }
 }
