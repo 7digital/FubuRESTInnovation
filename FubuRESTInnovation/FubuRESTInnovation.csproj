@@ -107,7 +107,6 @@
     <Compile Include="Configuration\SevenDizzleRegistry.cs" />
     <Compile Include="ConfigureFubuMVC.cs" />
     <Compile Include="Handlers\Artist\Get.cs" />
-    <Compile Include="Handlers\Error\Get.cs" />
     <Compile Include="Handlers\Home\Get.cs" />
     <Compile Include="Infrastructure\Behaviours\ErrorHandler.cs" />
     <Compile Include="Infrastructure\Errors\ApiException.cs" />

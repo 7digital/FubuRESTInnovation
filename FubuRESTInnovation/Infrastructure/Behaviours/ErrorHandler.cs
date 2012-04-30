@@ -2,23 +2,22 @@
 using System.Net;
 using FubuMVC.Core;
 using FubuMVC.Core.Behaviors;
-using FubuMVC.Core.Runtime;
-using FubuRESTInnovation.Handlers.Error;
+using FubuMVC.Core.Continuations;
+using FubuMVC.Core.Http;
 using FubuRESTInnovation.Infrastructure.Errors;
+using FubuRESTInnovation.Infrastructure.Output;
 
 namespace FubuRESTInnovation.Infrastructure.Behaviours
 {
     public class ErrorHandler : IActionBehavior
     {
-        private readonly IFubuRequest _request;
-        private readonly IOutputWriter _writer;
-        private readonly IPartialFactory _factory;
+        private readonly IHttpWriter _writer;
+        private readonly IRequestHeaders _headers;
 
-        public ErrorHandler(IFubuRequest request, IOutputWriter writer, IPartialFactory factory)
+        public ErrorHandler(IHttpWriter writer, IRequestHeaders headers)
         {
-            _request = request;
             _writer = writer;
-            _factory = factory;
+            _headers = headers;
         }
 
         public IActionBehavior InsideBehavior { get; set; }
@@ -43,13 +42,17 @@ namespace FubuRESTInnovation.Infrastructure.Behaviours
             }
             catch (ApiException ex)
             {
-                var request = new ErrorRequest {Message = ex.Message};
-                _request.Set(request);
-                _factory.BuildPartial(request.GetType()).InvokePartial();
-                _writer.WriteResponseCode(ex.Status);
+                var model = new ErrorResponse {Error = ex.Message};
+                CodecSelector.SetResponseFor(model, _headers, _writer);
+                 _writer.WriteResponseCode(ex.Status);
             }
         }
 
        
+    }
+
+    public class ErrorResponse
+    {
+        public string Error { get; set; }
     }
 }

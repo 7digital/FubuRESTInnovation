@@ -10,24 +10,26 @@ namespace AcceptanceTess
 
         public static void ExamineResponseBodyFor(string url, Action<string> a, string accept = "")
         {
-            using (var sr = new StreamReader(GetRequest(url, accept).GetResponse().GetResponseStream()))
-            {
-                a(sr.ReadToEnd());
-            }
+            var sr = new StreamReader(GetResponse(url, accept).GetResponseStream());
+            a(sr.ReadToEnd());
         }
 
         public static void ExamineResponseFor(string url, Action<HttpWebResponse> a, string accept = "")
         {
+            a(GetResponse(url, accept));
+        }
+
+        private static HttpWebResponse GetResponse(string url, string accept)
+        {
             try
             {
-                using (var response = (HttpWebResponse)GetRequest(url, accept).GetResponse())
-                {
-                    a(response);
-                }
+                var response = (HttpWebResponse) GetRequest(url, accept).GetResponse();
+             
+                return response;
             }
             catch (WebException ex)
             {
-                a((HttpWebResponse) ex.Response);
+                return (HttpWebResponse) ex.Response;
             }
         }
 

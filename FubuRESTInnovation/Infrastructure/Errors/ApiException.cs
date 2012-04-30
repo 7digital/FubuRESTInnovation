@@ -5,7 +5,7 @@ namespace FubuRESTInnovation.Infrastructure.Errors
 {
     public class ApiException : Exception
     {
-        public ApiException(HttpStatusCode statusCode, string message)
+        public ApiException(HttpStatusCode statusCode, string message) :base(message)
         {
             Status = statusCode;
         }

@@ -29,39 +29,45 @@ namespace FubuRESTInnovation.Infrastructure.Output
         {
             var model = _request.Get<HomeModel>();
 
-            string accept = "";
-            _headers.Value<string>("Accept", x => accept = x.Split(',')[0]);
-
-            if (accept == "application/json")
-            {
-                SetResponseContent("application/json", GetJsonFor(model));
-            }
-            else
-            {
-                SetResponseContent("application/xml", GetConventionalXmlFor(model));
-            }
+            SetResponseFor(model, _headers, _writer);
 
             return DoNext.Continue;
         }
 
-        private static string GetJsonFor(HomeModel model)
+        public static void SetResponseFor(object model, IRequestHeaders headers, IHttpWriter writer)
+        {
+            string accept = "";
+            headers.Value<string>("Accept", x => accept = x.Split(',')[0]);
+
+            if (accept == "application/json")
+            {
+                SetResponseContent("application/json", GetJsonFor(model), writer);
+            }
+            else
+            {
+                SetResponseContent("application/xml", GetConventionalXmlFor(model), writer);
+            }
+        }
+
+        private static string GetJsonFor(object model)
         {
             return "{\"sevendigitalapi\":" + JsonSerializer.SerializeToString(model) + "}";
         }
 
-        private static string GetConventionalXmlFor(HomeModel model)
+        public static string GetConventionalXmlFor(object model)
         {
             var xml = GetXml(model, model.GetType());
 
             var conventionalXml = ReplaceModelTypeWithApiRootElement(xml);
+            
             return conventionalXml;
         }
 
-        private void SetResponseContent(string contentType, string content)
+        private static void SetResponseContent(string contentType, string content, IHttpWriter writer)
         {
-            _writer.Write(content);
+            writer.Write(content);
 
-            _writer.AppendHeader("Content-Type", contentType);
+            writer.AppendHeader("Content-Type", contentType);
         }
 
         private static string ReplaceModelTypeWithApiRootElement(string xml)
