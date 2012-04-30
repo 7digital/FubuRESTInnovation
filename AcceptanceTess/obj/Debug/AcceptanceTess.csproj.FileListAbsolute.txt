@@ -4,4 +4,3 @@ C:\dev\git projectsx\FubuRESTInnovation\AcceptanceTess\bin\Debug\nunit.framework
 C:\dev\git projectsx\FubuRESTInnovation\AcceptanceTess\bin\Debug\nunit.framework.xml
 C:\dev\git projectsx\FubuRESTInnovation\AcceptanceTess\obj\Debug\AcceptanceTess.dll
 C:\dev\git projectsx\FubuRESTInnovation\AcceptanceTess\obj\Debug\AcceptanceTess.pdb
-C:\dev\git projectsx\FubuRESTInnovation\AcceptanceTess\obj\Debug\AcceptanceTess.csprojResolveAssemblyReference.cache

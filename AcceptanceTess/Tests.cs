@@ -29,9 +29,9 @@ namespace AcceptanceTess
         [Test]
         public void Content_is_json_when_requested_by_header()
         {
-            var json = "{\"sevendigitalap\":{\"Message\":\"Welcome to the 7digital api\"}}";
+            var json = "{\"sevendigitalapi\":{\"Message\":\"Welcome to the 7digital api\"}}";
 
-            ExamineResponseFor(BaseUrl, responseBody => Assert.That(json, Is.EqualTo(responseBody)), "application/json");
+            ExamineResponseFor(BaseUrl, responseBody => Assert.That(responseBody, Is.EqualTo(json)), "application/json");
         }
 
         private static void ExamineResponseFor(string url, Action<string> a, string accept = "")
