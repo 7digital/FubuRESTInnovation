@@ -2,4 +2,7 @@
   <Module PersistentId="F33C80B5-3F2E-4F9A-BF5F-B3A3BA8515CB" ModuleId="FubuRESTInnovation" />
   <Module PersistentId="66CA1EA6-E458-4EC9-9A1A-F068D0C9A3E7" ModuleId="AcceptanceTests" />
   <Module PersistentId="ED040347-76C0-4A11-8FBA-C8432D5C6F5F" ModuleId="AcceptanceTess" />
+  <Module PersistentId="D581F443-ADD4-481B-8DEE-5BE5FCD58C9F" ModuleId="FubuRESTInnovation_1" />
+  <Module PersistentId="FubuMVC.Core, Version=0.9.5.0, Culture=neutral, PublicKeyToken=null" ModuleId="FubuMVC.Core" />
+  <Module PersistentId="FubuMVC.StructureMap, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" ModuleId="FubuMVC.StructureMap" />
 </Modules>

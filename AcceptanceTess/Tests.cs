@@ -15,7 +15,7 @@ namespace AcceptanceTess
         [Test]
         public void Homepage_shows_welcome_message()
         {
-            var response = WebRequest.Create("http://localhost/").GetResponse();
+            var response = WebRequest.Create("http://localhost:59517/").GetResponse();
             using (var sr = new StreamReader(response.GetResponseStream()))
             {
                 var x = XDocument.Parse(sr.ReadToEnd());
