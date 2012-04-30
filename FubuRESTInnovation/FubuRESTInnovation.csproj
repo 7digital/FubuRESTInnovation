@@ -106,6 +106,7 @@
     <Compile Include="Configuration\AppStart.cs" />
     <Compile Include="Configuration\SevenDizzleRegistry.cs" />
     <Compile Include="ConfigureFubuMVC.cs" />
+    <Compile Include="Handlers\Artist\Get.cs" />
     <Compile Include="Handlers\Home\Get.cs" />
     <Compile Include="Infrastructure\Output\CodecSelector.cs" />
     <Compile Include="Infrastructure\Output\CodecSelectorNode.cs" />
