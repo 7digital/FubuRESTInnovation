@@ -13,19 +13,19 @@ namespace AcceptanceTess
             [Test]
             public void Responds_with_404()
             {
-                Requester.ExamineResponseFor("artist/doesnotexist", 
+                Requester.ExamineResponseFor("releases/doesnotexist", 
                     r => Assert.That(r.StatusCode, Is.EqualTo(HttpStatusCode.NotFound)));
             }
 
             [Test]
             public void Shows_artist_doesnt_exist_error_message()
             {
-                Requester.ExamineResponseBodyFor("artist/doesnotexist",
+                Requester.ExamineResponseBodyFor("releases/doesnotexist",
                     responseBody =>
                         {
                             var x = XDocument.Parse(responseBody);
                             var error = x.Element("sevendigitalapi").Element("Error").Value;
-                            Assert.That(error, Is.EqualTo("Artist not found: doesnotexist"));
+                            Assert.That(error, Is.EqualTo("Release not found: doesnotexist"));
                         });
             }
         }
