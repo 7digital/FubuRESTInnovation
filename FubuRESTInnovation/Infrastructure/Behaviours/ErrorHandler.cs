@@ -47,8 +47,6 @@ namespace FubuRESTInnovation.Infrastructure.Behaviours
                  _writer.WriteResponseCode(ex.Status);
             }
         }
-
-       
     }
 
     public class ErrorResponse
