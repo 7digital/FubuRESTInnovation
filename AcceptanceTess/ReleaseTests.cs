@@ -56,8 +56,14 @@ namespace AcceptanceTess
                             }
                         });
             }
+           
+            [Test]
+            public void Responds_with_400_if_type_value_is_invalid()
+            {
+                Requester.ExamineResponseFor("releases?type=crap", r => Assert.That(r.StatusCode, Is.EqualTo(HttpStatusCode.BadRequest)));
+            }
 
-            // error when release type is invalid
+             // error message when release type is invalid
             
         }
        
