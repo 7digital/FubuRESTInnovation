@@ -41,20 +41,19 @@ namespace AcceptanceTess
             {
                 var singles = ReleaseRetriever.Releases.Where(r => r.Type == ReleaseType.Single).ToList();
 
-                Requester.ExamineResponseBodyFor("releases?type=single", 
-                    responseBody =>
-                        {
-                            var responseReleases = XDocument.Parse(responseBody).Descendants("Release");
+                Requester.ExamineResponseBodyFor("releases?type=single", responseBody =>
+                {
+                    var responseReleases = XDocument.Parse(responseBody).Descendants("Release");
 
-                            Assert.That(responseReleases.Count(), Is.EqualTo(singles.Count(t => t.Type == ReleaseType.Single)));
+                    Assert.That(responseReleases.Count(), Is.EqualTo(singles.Count(t => t.Type == ReleaseType.Single)));
 
-                            foreach (var s in singles)
-                            {
-                                var match = responseReleases.Single(x => x.Element("Id").Value == s.Id);
-                                
-                                Assert.That(match.Element("Type").Value, Is.EqualTo(s.Type.ToString()), "No match for: " + s.Id);
-                            }
-                        });
+                    foreach (var s in singles)
+                    {
+                        var match = responseReleases.Single(x => x.Element("Id").Value == s.Id);
+                        
+                        Assert.That(match.Element("Type").Value, Is.EqualTo(s.Type.ToString()), "No match for: " + s.Id);
+                    }
+                });
             }
            
             [Test]
@@ -63,9 +62,21 @@ namespace AcceptanceTess
                 Requester.ExamineResponseFor("releases?type=crap", r => Assert.That(r.StatusCode, Is.EqualTo(HttpStatusCode.BadRequest)));
             }
 
-             // error message when release type is invalid
+            [Test]
+            public void Shows_parameter_invalid_error_message_if_type_is_invalid()
+            {
+                Requester.ExamineResponseBodyFor("/releases?type=crap", responseBody =>
+                {
+                    var x = XDocument.Parse(responseBody);
+                    var error = x.Descendants("Error").Single().Value;
+
+                    Assert.That(error, Is.EqualTo("crap is not a valid type"));
+                });
+            }
             
         }
+
+
        
     }
 }

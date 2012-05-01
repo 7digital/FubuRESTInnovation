@@ -9,12 +9,12 @@ using FubuRESTInnovation.Infrastructure.Output;
 
 namespace FubuRESTInnovation.Infrastructure.Behaviours
 {
-    public class ErrorHandler : IActionBehavior
+    public class ApiErrorsHandler : IActionBehavior
     {
         private readonly IHttpWriter _writer;
         private readonly IRequestHeaders _headers;
 
-        public ErrorHandler(IHttpWriter writer, IRequestHeaders headers)
+        public ApiErrorsHandler(IHttpWriter writer, IRequestHeaders headers)
         {
             _writer = writer;
             _headers = headers;

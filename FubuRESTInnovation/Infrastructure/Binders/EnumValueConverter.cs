@@ -1,7 +1,10 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Reflection;
 using FubuCore.Binding;
+using FubuMVC.Core.Runtime;
 using FubuRESTInnovation.Infrastructure.Errors;
 
 namespace FubuRESTInnovation.Infrastructure.Binders
@@ -21,7 +24,20 @@ namespace FubuRESTInnovation.Infrastructure.Binders
 
             var enumType = context.Property.PropertyType;
 
-            return Enum.Parse(enumType, rawValue, true);
+            try
+            {
+                return Enum.Parse(enumType, rawValue, true);
+            }
+            catch (Exception)
+            {
+                var problems = new List<ConvertProblem>
+                {
+                    new ConvertProblem { Item = rawValue, Property = context.Property}
+                };
+
+                throw new BindResultAssertionException(context.Object.GetType(), problems);
+            }
+            
         }
     }
 }

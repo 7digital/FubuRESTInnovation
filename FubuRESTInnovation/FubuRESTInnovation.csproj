@@ -108,9 +108,10 @@
     <Compile Include="Handlers\Releases\Get.cs" />
     <Compile Include="Handlers\Home\Get.cs" />
     <Compile Include="Handlers\Releases\Index.cs" />
-    <Compile Include="Infrastructure\Behaviours\ErrorHandler.cs" />
+    <Compile Include="Infrastructure\Behaviours\ApiErrorsHandler.cs" />
     <Compile Include="Infrastructure\Binders\EnumValueConverter.cs" />
     <Compile Include="Infrastructure\Errors\ApiException.cs" />
+    <Compile Include="Infrastructure\Errors\BindingErrorsHandler.cs" />
     <Compile Include="Infrastructure\Output\CodecSelector.cs" />
     <Compile Include="Infrastructure\Output\CodecSelectorNode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
