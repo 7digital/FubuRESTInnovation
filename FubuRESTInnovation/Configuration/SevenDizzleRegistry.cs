@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using FubuMVC.Core;
+using FubuMVC.Core.Registration.Nodes;
 using FubuRESTInnovation.Handlers.Home;
 using FubuRESTInnovation.Infrastructure.Behaviours;
 using FubuRESTInnovation.Infrastructure.Output;
@@ -29,7 +30,7 @@ namespace FubuRESTInnovation.Configuration
                 .RootAtAssemblyNamespace()
                 .HomeIs<Get>(x => x.Invoke());
 
-            Output.To<CodecSelectorNode>();
+            Output.To(x => (OutputNode) Activator.CreateInstance(typeof (CodecSelectorNode<>).MakeGenericType(x.OutputType())));
 
             Policies
                 .WrapBehaviorChainsWith<ErrorHandler>();

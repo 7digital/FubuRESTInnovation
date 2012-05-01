@@ -102,7 +102,6 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\FubuMVC.cs" />
     <Compile Include="Configuration\AppStart.cs" />
     <Compile Include="Configuration\SevenDizzleRegistry.cs" />
     <Compile Include="ConfigureFubuMVC.cs" />

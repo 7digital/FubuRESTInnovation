@@ -39,25 +39,14 @@ namespace AcceptanceTess
             [Test]
             public void Returns_releases_of_the_queried_type()
             {
-                ReleaseRetriever.Clear();
-
-                var releases = new List<ReleaseResource>
-                {
-                    new ReleaseResource {Id = "1", Name = "what what what", Type = ReleaseType.Single},
-                    new ReleaseResource {Id = "2", Name = "who is that", Type = ReleaseType.Single},
-                    new ReleaseResource {Id = "3", Name = "in this town", Type = ReleaseType.Album},
-                    new ReleaseResource {Id = "4", Name = "in the grove", Type = ReleaseType.Album},
-                    new ReleaseResource {Id = "5", Name = "micky wicky", Type = ReleaseType.SomethingElse},
-                };
-
-                ReleaseRetriever.Add(releases);
+                var releases = ReleaseRetriever.Releases;
 
                 Requester.ExamineResponseBodyFor("releases?type=Single", 
                     responseBody =>
                         {
                             var responseReleases = XDocument.Parse(responseBody).Descendants("Release");
 
-                            Assert.That(responseReleases.Count(), Is.EqualTo(releases.Count()));
+                            Assert.That(responseReleases.Count(), Is.EqualTo(releases.Count(t => t.Type == ReleaseType.Single)));
 
                             foreach (var r in releases)
                             {

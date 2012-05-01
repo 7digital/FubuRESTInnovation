@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Linq;
 using System.Xml;
 using System.Xml.Linq;
 using FubuMVC.Core;
@@ -12,7 +13,7 @@ using XmlSerializer = System.Xml.Serialization.XmlSerializer;
 
 namespace FubuRESTInnovation.Infrastructure.Output
 {
-    public class CodecSelector : BasicBehavior
+    public class CodecSelector<TOutputModel> : BasicBehavior where TOutputModel : class
     {
         private readonly IFubuRequest _request;
         private readonly IHttpWriter _writer;
@@ -27,14 +28,14 @@ namespace FubuRESTInnovation.Infrastructure.Output
 
         protected override DoNext performInvoke()
         {
-            var model = _request.Get<HomeModel>();
+            var model = _request.Find<TOutputModel>().First();
 
             SetResponseFor(model, _headers, _writer);
 
             return DoNext.Continue;
         }
 
-        public static void SetResponseFor(object model, IRequestHeaders headers, IHttpWriter writer)
+        public static void SetResponseFor<T>(T model, IRequestHeaders headers, IHttpWriter writer)
         {
             string accept = "";
             headers.Value<string>("Accept", x => accept = x.Split(',')[0]);

@@ -3,7 +3,7 @@ using FubuRESTInnovation.Configuration;
 
 namespace FubuRESTInnovation.Infrastructure.Output
 {
-    public class CodecSelectorNode : OutputNode<CodecSelector>
+    public class CodecSelectorNode<TOutputModel> : OutputNode<CodecSelector<TOutputModel>> where TOutputModel : class
     {
     }
 }
