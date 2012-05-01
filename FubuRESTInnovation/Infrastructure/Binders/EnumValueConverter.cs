@@ -35,7 +35,9 @@ namespace FubuRESTInnovation.Infrastructure.Binders
                     new ConvertProblem { Item = rawValue, Property = context.Property}
                 };
 
-                throw new BindResultAssertionException(context.Object.GetType(), problems);
+                // This is a fubu exception that will build up binding errors in the response 
+                // and assign them to the input model (context.Object.GetType())
+                throw new BindResultAssertionException(context.Object.GetType(), problems); 
             }
             
         }

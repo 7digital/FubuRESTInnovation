@@ -6,7 +6,7 @@ namespace AcceptanceTess
 {
     public static class Requester
     {
-        private const string BaseUrl = "http://localhost:59517/";
+        public const string BaseUrl = "http://localhost:59517/";
 
         public static void ExamineResponseBodyFor(string url, Action<string> a, string accept = "")
         {

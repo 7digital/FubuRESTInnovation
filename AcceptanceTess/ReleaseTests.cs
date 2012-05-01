@@ -11,7 +11,23 @@ namespace AcceptanceTess
     public class ReleaseTests
     {
         [TestFixture]
-        public class When_searching_for_an_artist_that_does_not_exist
+        public class When_searching_for_a_release_that_does_exist
+        {
+            [Test]
+            public void Shows_link_to_artist_for_this_release()
+            {
+                Requester.ExamineResponseBodyFor("/releases/Skipadeee", responseBody =>
+                {
+                    var x = XDocument.Parse(responseBody);
+                    var artistUrl = x.Root.Element("Artist").Element("Url").Value;
+
+                    Assert.That(artistUrl, Is.EqualTo(Requester.BaseUrl + "artists/Mujanji"));
+                });
+            }
+        }
+
+        [TestFixture]
+        public class When_searching_for_a_release_that_does_not_exist
         {
             [Test]
             public void Responds_with_404()
@@ -23,13 +39,13 @@ namespace AcceptanceTess
             [Test]
             public void Shows_release_doesnt_exist_error_message()
             {
-                Requester.ExamineResponseBodyFor("releases/doesnotexist",
-                    responseBody =>
-                        {
-                            var x = XDocument.Parse(responseBody);
-                            var error = x.Element("sevendigitalapi").Element("Error").Value;
-                            Assert.That(error, Is.EqualTo("Release not found: doesnotexist"));
-                        });
+                Requester.ExamineResponseBodyFor("releases/doesnotexist", responseBody =>
+                {
+                    var x = XDocument.Parse(responseBody);
+                    var error = x.Element("sevendigitalapi").Element("Error").Value;
+                    
+                    Assert.That(error, Is.EqualTo("Release not found: doesnotexist"));
+                });
             }
         }
 
