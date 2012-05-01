@@ -16,8 +16,10 @@ namespace FubuRESTInnovation.Configuration
 
             Actions
                 .IncludeTypes(
-                    handlerype => handlerype.Namespace.Contains("FubuRESTInnovation.Handlers") 
-                    && new [] {"get", "put", "post", "delete"}.Any(verb => verb == handlerype.Name.ToLower())
+                    handlerype => handlerype.Namespace.Contains("FubuRESTInnovation.Handlers") // all handlers live in this namespace
+                    && 
+                    (new [] {"get", "put", "post", "delete"}.Any(verb => verb == handlerype.Name.ToLower()) // handlers must be a http verb
+                    || handlerype.Name == "Index") // or handlers must be called Index
                  );
 
             Routes
