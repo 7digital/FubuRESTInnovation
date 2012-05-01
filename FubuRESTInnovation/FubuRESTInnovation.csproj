@@ -114,6 +114,8 @@
     <Compile Include="Infrastructure\Errors\BindingErrorsHandler.cs" />
     <Compile Include="Infrastructure\Output\CodecSelector.cs" />
     <Compile Include="Infrastructure\Output\CodecSelectorNode.cs" />
+    <Compile Include="Infrastructure\Output\ResponseContentSetter.cs" />
+    <Compile Include="Infrastructure\Output\XmlOutputBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

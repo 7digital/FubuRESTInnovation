@@ -4,6 +4,7 @@ using System.Net;
 using FubuMVC.Core.Behaviors;
 using FubuMVC.Core.Http;
 using FubuMVC.Core.Runtime;
+using FubuRESTInnovation.Infrastructure.Output;
 
 namespace FubuRESTInnovation.Infrastructure.Errors
 {
