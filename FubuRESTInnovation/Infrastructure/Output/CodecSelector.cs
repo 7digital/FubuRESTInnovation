@@ -24,7 +24,7 @@ namespace FubuRESTInnovation.Infrastructure.Output
         {
             var model = _request.Find<TOutputModel>().First();
 
-            ResponseContentSetter.SetResponseFor(model, _headers, _writer);
+            ResponseContentSetter.SetResponseContentFor(model, _headers, _writer);
 
             return DoNext.Continue;
         }

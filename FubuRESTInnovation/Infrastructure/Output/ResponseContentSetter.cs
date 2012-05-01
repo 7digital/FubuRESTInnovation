@@ -5,7 +5,7 @@ namespace FubuRESTInnovation.Infrastructure.Output
 {
     public static class ResponseContentSetter
     {
-        public static void SetResponseFor<T>(T model, IRequestHeaders headers, IHttpWriter writer)
+        public static void SetResponseContentFor<T>(T model, IRequestHeaders headers, IHttpWriter writer)
         {
             string accept = "";
             headers.Value<string>("Accept", x => accept = x.Split(',')[0]);
