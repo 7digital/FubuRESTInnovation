@@ -44,7 +44,7 @@
   <ItemGroup>
     <Compile Include="ReleaseTests.cs" />
     <Compile Include="Requester.cs" />
-    <Compile Include="Tests.cs" />
+    <Compile Include="ServiceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

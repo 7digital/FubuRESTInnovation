@@ -10,7 +10,7 @@ using NUnit.Framework;
 namespace AcceptanceTess
 {
     [TestFixture]
-    public class Tests
+    public class ServiceTests
     {
         [Test]
         public void Homepage_shows_welcome_message()

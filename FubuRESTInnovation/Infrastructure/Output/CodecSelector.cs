@@ -50,6 +50,15 @@ namespace FubuRESTInnovation.Infrastructure.Output
             }
         }
 
+
+        /*
+         * 
+         * 
+         * Move all of the below into a new class
+         * 
+         */
+
+
         private static string GetJsonFor(object model)
         {
             return "{\"sevendigitalapi\":" + JsonSerializer.SerializeToString(model) + "}";
@@ -59,16 +68,11 @@ namespace FubuRESTInnovation.Infrastructure.Output
         {
             var xml = GetXml(model, model.GetType());
 
-            var conventionalXml = ReplaceModelTypeWithApiRootElement(xml);
-            
-            return conventionalXml;
-        }
+            var withSevenDigitalRoot = ReplaceModelTypeWithApiRootElement(xml);
 
-        private static void SetResponseContent(string contentType, string content, IHttpWriter writer)
-        {
-            writer.Write(content);
+            var withResourceRemoved = StripOutResourceFromNames(withSevenDigitalRoot);
 
-            writer.AppendHeader("Content-Type", contentType);
+            return withResourceRemoved;
         }
 
         private static string ReplaceModelTypeWithApiRootElement(string xml)
@@ -76,11 +80,35 @@ namespace FubuRESTInnovation.Infrastructure.Output
             var x = XDocument.Parse(xml);
             x.Root.Name = "sevendigitalapi";
 
+            return GetStringFrom(x);
+        }
+
+        private static string StripOutResourceFromNames(string withSevenDigitalRoot)
+        {
+            var x = XDocument.Parse(withSevenDigitalRoot);
+
+            foreach (var e in x.Descendants())
+            {
+                e.Name = e.Name.ToString().Replace("Resource", "");
+            }
+
+            return GetStringFrom(x);
+        }
+
+        private static string GetStringFrom(XDocument x)
+        {
             var sww = new StringWriter();
             x.Save(sww);
 
             var finalXml = sww.ToString();
             return finalXml;
+        }
+
+        private static void SetResponseContent(string contentType, string content, IHttpWriter writer)
+        {
+            writer.Write(content);
+
+            writer.AppendHeader("Content-Type", contentType);
         }
 
         private static string GetXml(object model, Type type)

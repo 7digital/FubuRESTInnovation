@@ -39,20 +39,20 @@ namespace AcceptanceTess
             [Test]
             public void Returns_releases_of_the_queried_type()
             {
-                var releases = ReleaseRetriever.Releases;
+                var singles = ReleaseRetriever.Releases.Where(r => r.Type == ReleaseType.Single).ToList();
 
-                Requester.ExamineResponseBodyFor("releases?type=Single", 
+                Requester.ExamineResponseBodyFor("releases?type=single", 
                     responseBody =>
                         {
                             var responseReleases = XDocument.Parse(responseBody).Descendants("Release");
 
-                            Assert.That(responseReleases.Count(), Is.EqualTo(releases.Count(t => t.Type == ReleaseType.Single)));
+                            Assert.That(responseReleases.Count(), Is.EqualTo(singles.Count(t => t.Type == ReleaseType.Single)));
 
-                            foreach (var r in releases)
+                            foreach (var s in singles)
                             {
-                                var match = responseReleases.Single(x => x.Element("Id").Value == r.Id);
+                                var match = responseReleases.Single(x => x.Element("Id").Value == s.Id);
                                 
-                                Assert.That(match.Element("Type").Value, Is.EqualTo(r.Type), "No match for: " + r.Id);
+                                Assert.That(match.Element("Type").Value, Is.EqualTo(s.Type.ToString()), "No match for: " + s.Id);
                             }
                         });
             }
