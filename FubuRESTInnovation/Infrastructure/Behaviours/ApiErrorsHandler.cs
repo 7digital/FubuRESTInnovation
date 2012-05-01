@@ -42,9 +42,9 @@ namespace FubuRESTInnovation.Infrastructure.Behaviours
             }
             catch (ApiException ex)
             {
-                var model = new ErrorResponse {Error = ex.Message};
-                ResponseContentSetter.SetResponseContentFor(model, _headers, _writer);
-                 _writer.WriteResponseCode(ex.Status);
+                ResponseContentSetter.SetErrorResponse(ex.Message, _writer, _headers);
+                // _TODO _writer.Write(ResponseConentSetter.GetResponseContent) #timeconstraint
+                _writer.WriteResponseCode(ex.Status);
             }
         }
     }

@@ -1,4 +1,5 @@
 using FubuMVC.Core.Http;
+using FubuRESTInnovation.Infrastructure.Behaviours;
 using ServiceStack.Text;
 
 namespace FubuRESTInnovation.Infrastructure.Output
@@ -30,6 +31,12 @@ namespace FubuRESTInnovation.Infrastructure.Output
         private static string GetJsonFor(object model)
         {
             return "{\"sevendigitalapi\":" + JsonSerializer.SerializeToString(model) + "}";
+        }
+
+        public static void SetErrorResponse(string message, IHttpWriter httpWriter, IRequestHeaders requestHeaders)
+        {
+            var model = new ErrorResponse {Error = message};
+            SetResponseContentFor(model, requestHeaders, httpWriter);
         }
     }
 }
