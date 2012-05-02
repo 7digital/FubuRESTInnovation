@@ -1,0 +1,1 @@
+Clean and build before you run the acceptance tests, because my test data is static variables 
