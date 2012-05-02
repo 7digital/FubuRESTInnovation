@@ -33,6 +33,7 @@ namespace FubuRESTInnovation.Configuration
                 .ConstrainToHttpMethod(x => x.HandlerType.Name.ToLower() == "get", "Get")
                 .ConstrainToHttpMethod(x => x.HandlerType.Name.ToLower() == "post", "Post")
                 .ConstrainToHttpMethod(x => x.HandlerType.Name.ToLower() == "put", "Put")
+                .ConstrainToHttpMethod(x => x.HandlerType.Name.ToLower() == "delete", "Delete")
                 .RootAtAssemblyNamespace()
                 .HomeIs<Get>(x => x.Invoke());
 

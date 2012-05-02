@@ -48,7 +48,11 @@ namespace FubuRESTInnovation.Handlers.Artists
             _artists.Add(artistResource);
         }
 
-         
+
+        public static void Delete(string name)
+        {
+            _artists.Remove(_artists.Single(a => a.Name == name));
+        }
     }
 
    
