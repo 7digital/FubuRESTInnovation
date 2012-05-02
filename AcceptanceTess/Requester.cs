@@ -25,11 +25,16 @@ namespace AcceptanceTess
 
         private static HttpWebResponse GetResponse(string url, string accept)
         {
+            var request = GetRequest(url, accept);
+
+            return GetResponse(request);
+        }
+
+        public static HttpWebResponse GetResponse(HttpWebRequest request)
+        {
             try
             {
-                var response = (HttpWebResponse) GetRequest(url, accept).GetResponse();
-             
-                return response;
+                return (HttpWebResponse) request.GetResponse();
             }
             catch (WebException ex)
             {

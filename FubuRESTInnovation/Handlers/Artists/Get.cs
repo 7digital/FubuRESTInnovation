@@ -1,5 +1,9 @@
-﻿using FubuMVC.Core;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using FubuMVC.Core;
 using FubuRESTInnovation.Handlers.Releases;
+using FubuRESTInnovation.Infrastructure.Errors;
 
 namespace FubuRESTInnovation.Handlers.Artists
 {
@@ -7,7 +11,11 @@ namespace FubuRESTInnovation.Handlers.Artists
     {
         public ArtistResource Invoke(ArtistRequest request)
         {
-            return null;
+            var artist = ArtistRetriever.Get(request.Key);
+
+            if (artist == null) throw new ApiException(HttpStatusCode.NotFound, "Artist " + request.Key + " not found");
+
+            return artist;
         }
     }
 
@@ -19,5 +27,18 @@ namespace FubuRESTInnovation.Handlers.Artists
 
     public class ArtistResource
     {
+        public string Name { get; set; }
+
+        public int Age { get; set; }
+    }
+
+    public static class ArtistRetriever
+    {
+        private static readonly IList<ArtistResource> _artists  = new List<ArtistResource>();
+
+        public static ArtistResource Get(string name)
+        {
+            return _artists.SingleOrDefault(a => a.Name == name);
+        }
     }
 }

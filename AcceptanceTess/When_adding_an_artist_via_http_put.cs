@@ -26,7 +26,7 @@ namespace AcceptanceTess
                 wr.Write(xml);
             }
 
-            request.GetResponse();
+            Requester.GetResponse(request);
             
             Requester.ExamineResponseBodyFor("artists/Benjamin", responseBody =>
             {
