@@ -104,7 +104,6 @@
   <ItemGroup>
     <Compile Include="Configuration\AppStart.cs" />
     <Compile Include="Configuration\SevenDizzleRegistry.cs" />
-    <Compile Include="ConfigureFubuMVC.cs" />
     <Compile Include="Handlers\Artists\Get.cs" />
     <Compile Include="Handlers\Artists\Put.cs" />
     <Compile Include="Handlers\Releases\Get.cs" />
