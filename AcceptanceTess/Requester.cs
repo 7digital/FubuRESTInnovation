@@ -10,7 +10,12 @@ namespace AcceptanceTess
 
         public static void ExamineResponseBodyFor(string url, Action<string> a, string accept = "")
         {
-            var sr = new StreamReader(GetResponse(url, accept).GetResponseStream());
+            ExamineResponseBodyFor(GetResponse(url, accept), a);
+        }
+
+        public static void ExamineResponseBodyFor(HttpWebResponse respone, Action<string> a)
+        {
+            var sr = new StreamReader(respone.GetResponseStream());
             var responseBody = sr.ReadToEnd();
 
             Console.Write(responseBody);

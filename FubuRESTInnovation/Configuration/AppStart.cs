@@ -18,6 +18,7 @@ namespace FubuRESTInnovation.Configuration
             container.Configure(x =>
             {
                 x.For<IConverterFamily>().Use<EnumValueConverter>();
+                x.For<IModelBinder>().Use<PutRequestBinder>();
             });
 
             BootstrappingExtensions.StructureMap(FubuApplication.For<SevenDizzleRegistry>(), container)

@@ -112,6 +112,7 @@
     <Compile Include="Handlers\Releases\Index.cs" />
     <Compile Include="Infrastructure\Behaviours\ApiErrorsHandler.cs" />
     <Compile Include="Infrastructure\Binders\EnumValueConverter.cs" />
+    <Compile Include="Infrastructure\Binders\PutRequestBinder.cs" />
     <Compile Include="Infrastructure\Errors\ApiException.cs" />
     <Compile Include="Infrastructure\Errors\BindingErrorsHandler.cs" />
     <Compile Include="Infrastructure\Output\CodecSelector.cs" />

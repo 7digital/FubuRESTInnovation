@@ -8,11 +8,14 @@ namespace AcceptanceTess
     [TestFixture]
     public class When_adding_an_artist_via_http_put
     {
-        [Test]
-        public void Artists_can_be_requested_via_get_at_url_PUT_to()
+        private const string ARTIST_NAME = "JeremyMiller";
+        private HttpWebResponse _response;
+
+        [TestFixtureSetUp]
+        public void TFSetup()
         {
             // TODO - once data has been put will stick around for application lifetime - need better test data setup
-            var request = (HttpWebRequest) WebRequest.Create(Requester.BaseUrl + "artists/Benjamin");
+            var request = (HttpWebRequest)WebRequest.Create(Requester.BaseUrl + "artists/" + ARTIST_NAME);
             request.Method = "PUT";
 
             using (var wr = new StreamWriter(request.GetRequestStream()))
@@ -26,26 +29,31 @@ namespace AcceptanceTess
                 wr.Write(xml);
             }
 
-            Requester.GetResponse(request);
-            
-            Requester.ExamineResponseBodyFor("artists/Benjamin", responseBody =>
+            _response = Requester.GetResponse(request);
+        }
+
+        [Test]
+        public void Artists_can_be_requested_via_get_at_url_PUT_to()
+        {
+            Requester.ExamineResponseBodyFor("artists/" + ARTIST_NAME , responseBody =>
             {
                 var x = XDocument.Parse(responseBody);
                 var name = x.Root.Element("Name").Value;
                 var age = x.Root.Element("Age").Value;
 
-                Assert.That(name, Is.EqualTo("Benjamin"));
-                Assert.That(age, Is.EqualTo(20));
-
+                Assert.That(name, Is.EqualTo(ARTIST_NAME));
+                Assert.That(age, Is.EqualTo("20"));
             });
-
         }
 
-        // respose code should be 201 if it is created
+        [Test]
+        public void Response_code_is_201_when_artist_succesfully_created()
+        {
+            Assert.That(_response.StatusCode, Is.EqualTo(HttpStatusCode.Created));
+        }
 
         // handle when artist already exists
 
         // handle an empty put requests that shows template for uploading an artist
-
     }
 }
