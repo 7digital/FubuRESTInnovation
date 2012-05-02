@@ -106,6 +106,7 @@
     <Compile Include="Configuration\SevenDizzleRegistry.cs" />
     <Compile Include="ConfigureFubuMVC.cs" />
     <Compile Include="Handlers\Artists\Get.cs" />
+    <Compile Include="Handlers\Artists\Put.cs" />
     <Compile Include="Handlers\Releases\Get.cs" />
     <Compile Include="Handlers\Home\Get.cs" />
     <Compile Include="Handlers\Releases\Index.cs" />

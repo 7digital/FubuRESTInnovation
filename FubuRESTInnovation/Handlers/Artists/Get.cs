@@ -32,6 +32,8 @@ namespace FubuRESTInnovation.Handlers.Artists
         public int Age { get; set; }
     }
 
+   
+
     public static class ArtistRetriever
     {
         private static readonly IList<ArtistResource> _artists  = new List<ArtistResource>();
@@ -40,5 +42,15 @@ namespace FubuRESTInnovation.Handlers.Artists
         {
             return _artists.SingleOrDefault(a => a.Name == name);
         }
+
+        public static void Add(ArtistResource artistResource)
+        {
+            _artists.Add(artistResource);
+        }
+
+         
     }
+
+   
+
 }

@@ -31,8 +31,8 @@ namespace AcceptanceTess
             Requester.ExamineResponseBodyFor("artists/Benjamin", responseBody =>
             {
                 var x = XDocument.Parse(responseBody);
-                var name = x.Element("Artist").Element("Name").Value;
-                var age = x.Element("Artist").Element("Age").Value;
+                var name = x.Root.Element("Name").Value;
+                var age = x.Root.Element("Age").Value;
 
                 Assert.That(name, Is.EqualTo("Benjamin"));
                 Assert.That(age, Is.EqualTo(20));
