@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="When_adding_an_artist_via_http_put.cs" />
     <Compile Include="ReleaseTests.cs" />
     <Compile Include="Requester.cs" />
     <Compile Include="ServiceTests.cs" />
