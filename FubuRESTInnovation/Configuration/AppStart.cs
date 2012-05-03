@@ -1,4 +1,5 @@
-﻿using FubuCore.Binding;
+﻿using Bottles;
+using FubuCore.Binding;
 using FubuMVC.Core;
 using FubuMVC.StructureMap;
 using FubuRESTInnovation.Configuration;
@@ -23,6 +24,8 @@ namespace FubuRESTInnovation.Configuration
 
             BootstrappingExtensions.StructureMap(FubuApplication.For<SevenDizzleRegistry>(), container)
                 .Bootstrap();
+
+            PackageRegistry.AssertNoFailures();
         }
         
     }
