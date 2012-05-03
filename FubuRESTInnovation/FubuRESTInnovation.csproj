@@ -93,13 +93,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fubu-content\FubuMVC.GettingStarted.dll" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration\AppStart.cs" />
     <Compile Include="Configuration\SevenDizzleRegistry.cs" />
-    <Compile Include="ConfigureFubuMVC.cs" />
     <Compile Include="Handlers\Artists\Delete.cs" />
     <Compile Include="Handlers\Artists\Get.cs" />
     <Compile Include="Handlers\Artists\Put.cs" />
@@ -128,11 +126,9 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fubu-content\fubumvc-diagnostics.zip" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
