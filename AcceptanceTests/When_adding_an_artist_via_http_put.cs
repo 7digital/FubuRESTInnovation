@@ -21,9 +21,9 @@ namespace AcceptanceTess
             using (var wr = new StreamWriter(request.GetRequestStream()))
             {
                 var xml = @"
-                            <Artist>
+                            <ArtistId>
                                    <Age>20</Age>
-                            </Artist>
+                            </ArtistId>
                            ";
 
                 wr.Write(xml);

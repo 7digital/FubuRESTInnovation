@@ -52,13 +52,13 @@
     <Compile Include="When_deleting_an_artist_via_http_delete.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FubuRESTInnovation\FubuRESTInnovation.csproj">
-      <Project>{D581F443-ADD4-481B-8DEE-5BE5FCD58C9F}</Project>
-      <Name>FubuRESTInnovation</Name>
-    </ProjectReference>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <ProjectReference Include="..\FubuRESTInnovation\FubuRESTInnovation.csproj">
+      <Project>{d581f443-add4-481b-8dee-5be5fcd58c9f}</Project>
+      <Name>FubuRESTInnovation</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />

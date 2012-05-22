@@ -101,8 +101,8 @@
     <Compile Include="Handlers\Artists\Delete.cs" />
     <Compile Include="Handlers\Artists\Get.cs" />
     <Compile Include="Handlers\Artists\Put.cs" />
-    <Compile Include="Handlers\Releases\Get.cs" />
     <Compile Include="Handlers\Home\Get.cs" />
+    <Compile Include="Handlers\Releases\Get.cs" />
     <Compile Include="Handlers\Releases\Index.cs" />
     <Compile Include="Infrastructure\Behaviours\ApiErrorsHandler.cs" />
     <Compile Include="Infrastructure\Binders\EnumValueConverter.cs" />

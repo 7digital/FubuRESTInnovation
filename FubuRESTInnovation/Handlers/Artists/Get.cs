@@ -13,7 +13,7 @@ namespace FubuRESTInnovation.Handlers.Artists
         {
             var artist = ArtistRetriever.Get(request.Key);
 
-            if (artist == null) throw new ApiException(HttpStatusCode.NotFound, "Artist " + request.Key + " not found");
+            if (artist == null) throw new ApiException(HttpStatusCode.NotFound, "ArtistId " + request.Key + " not found");
 
             return artist;
         }
